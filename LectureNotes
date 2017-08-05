@@ -24,4 +24,31 @@ public class HelloWorld{
     }
 
 L3-4
-1.
+0. Math.pow(number,power): to raise a power.
+    Math.PI: 3.1415926....
+
+
+1. Primitive types: like int char double...They use a fixed amount of memory.
+They can be changed with simple math operations like +-*%
+    Objects are customized type of variables like String. One object can contain many primitive type of
+    as well as many other objects.
+2. If the variables are declared in BRACES, it ONLY exists within the braces
+But the change made on the variables outside the braces will be kept.
+
+int x = 3;
+{
+    int y = 5; // y is declared here , but z does not exist yet
+    int z = y; // y is still fine , and z is now declared too
+    x = y; // we 'll copy the value of y into x
+ }
+// y is no longer defined : it is out of scope
+// x now has the value 5
+
+3. types: primitive + reference
+4. The primitive types ,boolean and char are inclusive, are reserved words, but
+String is not reserved. You can use it as a variable name or to make your own type but it is very risky!
+
+5. The initial value of boolean type is false. You can use & | operations.
+6. char type is with single quotes like char ch = 'A'
+7. Java does not have unsigned data type.
+8.
