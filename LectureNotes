@@ -1,0 +1,27 @@
+L1-2
+1. Variable names cannot begin with numbers
+2. println has built in "\n" at the end of string
+
+public class HelloWorld{
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+3. javac HelloWorld.java  this one has ".java" in the end
+    java HelloWorld     this one specify java at the beginning
+4. Scanner:
+    import java.util.Scanner;   first remeber java.util.scanner
+
+    public class Echo {
+        public static void main (String[] args) {
+                Scanner keyboard = new Scanner(System.in)  Here it is "System.in"
+                System.out.println("Please enter a word");
+                String word = keyboard.next();    To get a word, use Variable.next() function
+                int n = keyboard.nextInt();       To get a number, use Varible.nextInt()
+                System.out.println("You entered the word " + word + " and the number "+ n);
+            }
+    }
+
+L3-4
+1.
