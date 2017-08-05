@@ -106,12 +106,13 @@ System.out.println("Portion = "+portion);
 
 L7-8
 1. Array:
-int [] x; // declare an array of integers of unknown length
-int y = 15;
-double [] z = new double [y];   // declare and initialise an array of doubles
-String [] myStrings = new String [y];   // declare and initialise an array of Strings
+    int [] x;       // declare an array of integers of unknown length, the square blanket is BEFORE variable name.
+    int y = 15;
+    double [] z = new double [y];       // declare and initialise an array of doubles
+    String [] myStrings = new String [y];       // declare and initialise an array of Strings
 
 
+*/
 //Debug
     }
 }
