@@ -84,7 +84,7 @@ Instead, we can use equals() to obtain comparison between the content of strings
 13. Because of the precision issues, you'd better not compare two float numbers.
 
 
-L4-5
+L5-5
 1. Cast:
 int litres = 4;
 int persons = 5;
@@ -97,17 +97,19 @@ System.out.println("Portion = "+portion);
     int litres = 5;
     int persons = (int)(litres / portion) ; //Remember "int" is in the brackets.
     System.out.println("persons = "+persons);
-
-L6-7
-1. while(Condition){
+3. while(Condition){
 
 }
-2. if(Condition){
+4. if(Condition){
 
 }
 
-L8-9
-1.
+L7-8
+1. Array:
+int [] x; // declare an array of integers of unknown length
+int y = 15;
+double [] z = new double [y];   // declare and initialise an array of doubles
+String [] myStrings = new String [y];   // declare and initialise an array of Strings
 
 
 //Debug
