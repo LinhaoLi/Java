@@ -41,7 +41,8 @@ public class HelloWorld{
 
 L3-4
 0. Double.parseDouble: convert string to a double
-    Integer.parseInt: convert string to a int
+    Integer.parseInt: convert string to a int. Remember it is Interger with capital letter I not int.
+    Variable.charAt(index): convert string to char
     Variable1.equals(Variable2): String comparison
     Math.pow(number, power): to raise a power.
     Math.PI: 3.1415926....
@@ -118,10 +119,16 @@ System.out.println("Portion = "+portion);
 
 L7-8
 1. Array:
-    int [] x;       // declare an array of integers of unknown length, the square blanket is BEFORE variable name.
+    int [] x;       // declare an array of integers of unknown length, the
+    //square blanket is BEFORE variable name.
     int y = 15;
-    double [] z = new double [y];       // declare and initialise an array of doubles
-    String [] myStrings = new String [y];       // declare and initialise an array of Strings
+    double [] z = new double [y];       // declares and initializes the array z
+    //with y doubles (all initially 0)
+    String [] myStrings = new String [y];       // declares and initializes the
+    //array myStrings with an array of Strings, all initially NULL
+    OR:
+    String names [] = new String [] { " Bill ", " Ted", " Larry " };
+2.
 
 
 */
