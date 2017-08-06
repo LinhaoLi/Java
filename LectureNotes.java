@@ -3,6 +3,8 @@ public class LectureNotes{
     public static void main(String[] args){
 //End of Debug
 /*L1-2
+0. keyboard.nextLine(): Print out whatever sentence you put in
+    keyboard.next(): Print out whatever word you put in
 1. Variable names cannot begin with numbers
 2. println has built in "\n" at the end of string
 
@@ -15,7 +17,7 @@ public class HelloWorld{
 3. javac HelloWorld.java  this one has ".java" in the end
     java HelloWorld     this one specify java at the beginning
 4. Scanner:
-    import java.util.Scanner;   first remeber java.util.scanner
+    import java.util.Scanner;   first remember java.util.scanner, then j is not capital character
 
     public class Echo {
         public static void main (String[] args) {
@@ -34,21 +36,24 @@ public class HelloWorld{
         keyboard. close ();     Remember to have this at the end
         }
     }
+5. System.out.print()        //No '\n'
+6. String sentence = keyboard.nextLine();       //This is the way you call functions
 
 L3-4
 0. Double.parseDouble: convert string to a double
     Integer.parseInt: convert string to a int
-    Variable1.equals(Variable2)
-    Math.pow(number,power): to raise a power.
+    Variable1.equals(Variable2): String comparison
+    Math.pow(number, power): to raise a power.
     Math.PI: 3.1415926....
     Varible.length() :returns a int.
     Varible.equals(another variable) :returns a boolean.
-    + operator:. Creates a new String from the concatenation of two existing strings.
+    + operator:. Creates a new String from the concatenation of two existing
+    strings.
 
 1. Primitive types: like int char double...They use a fixed amount of memory.
 They can be changed with simple math operations like +-*%
-    Objects are customized type of variables like String. One object can contain many primitive type of
-    as well as many other objects.
+    Objects are customized type of variables like String. One object can contain
+    many primitive type as well as many other objects.
 2. If the variables are declared in BRACES, it ONLY exists within the braces
 But the change made on the variables outside the braces will be kept.
 
@@ -61,9 +66,10 @@ int x = 3;
 // y is no longer defined : it is out of scope
 // x now has the value 5
 
-3. types: primitive + reference
+3. Types: primitive + reference
 4. The primitive types ,boolean and char are inclusive, are reserved words, but
-String is not reserved. You can use it as a variable name or to make your own type but it is very risky!
+String is not reserved. You can use it as a variable name or to make your own
+type but it is very risky!
 5. The initial value of boolean type is false. You can use & | operations.
 The default value of a String is a special value, null
 The default value for the integer types char, int, byte, long, byte is 0
@@ -77,6 +83,12 @@ http://docs.oracle.com/javase/7/docs/api/java/lang/String.html
     }
 We can use args[0], args[1].... to use the STRINGS we input. Remember the argument s are always Strings.
 They have to be converted into numbers if you want to use them as numbers.
+
+Always have this at the begining:
+	if (args.length < 1) {
+			return;
+		}
+
 10. Conversion: double x = Double . parseDouble (arg[0]);
 11. Do not use "==" to compare string content. the value of the String variable is a memory address.
 Instead, we can use equals() to obtain comparison between the content of strings.
@@ -84,7 +96,7 @@ Instead, we can use equals() to obtain comparison between the content of strings
 13. Because of the precision issues, you'd better not compare two float numbers.
 
 
-L5-5
+L5-6
 1. Cast:
 int litres = 4;
 int persons = 5;
