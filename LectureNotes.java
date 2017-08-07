@@ -200,7 +200,8 @@ L7-8
 3.  Variables [ Variables.length - 1] = 'C';    To reach the last element
 
 L9-10
-1:
+1.
+2.
 
 */
 //Debug
