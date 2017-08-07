@@ -77,6 +77,8 @@ Unlike C, Java can initialize the String and then assign it.
     str = "I don't know";
     System.out.println(str);
 
+
+
 5. The initial value of boolean type is false. You can use & | operations.
 The default value of a String is a special value, null
 The default value for the integer types char, int, byte, long, byte is 0
@@ -95,16 +97,57 @@ Always have this at the begining:
 	if (args.length < 1) {
 			return;
 		}
+space devide arguments, if you want to enter a sentence, use "Hello world!"
 
 10. Conversion: double x = Double . parseDouble (arg[0]);
 11. Do not use "==" to compare string content. the value of the String variable is a memory address.
 Instead, we can use equals() to obtain comparison between the content of strings.
 12. float a = 1.2f  "f" here means the data type is float number.
 13. Because of the precision issues, you'd better not compare two float numbers.
+    If you must, you can use "the difference is smaller than 10^-n)
 14. Bit Calculation. int num = 0x01; (We use int to operate bitwise operation)
                     int num2 = 0x03;
                     int ans = num1 & num2;
-15.
+15. String comparison:
+
+	1:{	//String msg1 = "hello";
+		//String msg2 = msg1; //"hello";
+
+        if (msg1 == msg2) {
+			System.out.println("Check 1: equal!");
+		}
+
+		if (msg1.equals(msg2)) {
+			System.out.println("Check 2: equal!");
+		}
+    }
+
+    It returns both for the new version of java. The reason can be reached by
+    compare the memory location. New version of Java refers to the same location
+    if the contents of the string are the same.
+
+    2:
+    {
+		String msg1 = new String("hello");
+		String msg2 = new String("hello");
+
+		//String msg1 = "hello";
+
+		//msg1 = msg1.intern();   //if you do not comment these
+		//msg2 = msg2.intern();   //it will return the both
+
+        if (msg1 == msg2) {
+            System.out.println("Check 1: equal!");
+        }
+
+        if (msg1.equals(msg2)) {
+            System.out.println("Check 2: equal!");
+        }
+
+        This time, it returns Check2. The address has changed.
+
+16. int: zero devision cannot be operated
+    double/float : zero devision is okay.
 
 L5-6
 1. Cast:
@@ -122,9 +165,11 @@ System.out.println("Portion = "+portion);
 3. while(Condition){
 
 }
-4. if(Condition){
+4. if(Condition){   //condition cannot be 1/0. It must be True/false.
 
 }
+5.
+
 
 L7-8
 1. Numerical Array:

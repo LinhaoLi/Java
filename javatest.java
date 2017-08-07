@@ -1,7 +1,9 @@
 public class javatest{
   public static void main(String[] asg){
-    String str;
-    str = "I don't know";
-    System.out.println(str);
+    int x = 0;
+    x = x +1;
+    int y = x;
+
     }
+//    System.out.println(x);
 }
