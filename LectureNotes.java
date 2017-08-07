@@ -200,8 +200,14 @@ L7-8
 3.  Variables [ Variables.length - 1] = 'C';    To reach the last element
 
 L9-10
-1.
-2.
+0. double = Math.sqrt(double);
+    double = Math . random ();
+1. argument: something that is passed to a method
+    parameter: something that is used by a method
+2. String methods will return a string but not modify the original string.
+   StringBuilder is a String that can be modified
+3. StringBuilder sb = new StringBuilder ( msg );
+    StringBuilder sb2 = sb;         The change if sb will lead to the change of sb2.
 
 */
 //Debug
