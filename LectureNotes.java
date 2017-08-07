@@ -197,8 +197,10 @@ L7-8
 
     OR:
     String names [];  //declare an array of string of unknown length
-2.
+3.  Variables [ Variables.length - 1] = 'C';    To reach the last element
 
+L9-10
+1:
 
 */
 //Debug
