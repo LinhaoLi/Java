@@ -42,7 +42,7 @@ public class HelloWorld{
 L3-4
 0. Double.parseDouble: convert string to a double
     Integer.parseInt: convert string to a int. Remember it is Interger with capital letter I not int.
-    Variable.charAt(index): convert string to char
+    Variable.charAt(index): convert string to char. index starts from 0
     Variable1.equals(Variable2): String comparison
     Math.pow(number, power): to raise a power.
     Math.PI: 3.1415926....
@@ -50,6 +50,7 @@ L3-4
     Varible.equals(another variable) :returns a boolean.
     + operator:. Creates a new String from the concatenation of two existing
     strings.
+    Variable.indexOf(char) and length can only be applied to strings.
 
 1. Primitive types: like int char double...They use a fixed amount of memory.
 They can be changed with simple math operations like +-*%
@@ -150,6 +151,8 @@ Instead, we can use equals() to obtain comparison between the content of strings
     double/float : zero devision is okay.
 
 L5-6
+0. Math.abs();
+    String = Integer.toString(int); Number to string
 1. Cast:
 int litres = 4;
 int persons = 5;
@@ -168,7 +171,9 @@ System.out.println("Portion = "+portion);
 4. if(Condition){   //condition cannot be 1/0. It must be True/false.
 
 }
-5.
+5. for(int i;;){
+//i only exist within the curly bracket.
+}
 
 
 L7-8
