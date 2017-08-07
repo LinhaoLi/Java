@@ -1,5 +1,7 @@
 public class javatest{
   public static void main(String[] asg){
-    String name[];
+    String str;
+    str = "I don't know";
+    System.out.println(str);
     }
 }

@@ -71,6 +71,12 @@ int x = 3;
 4. The primitive types ,boolean and char are inclusive, are reserved words, but
 String is not reserved. You can use it as a variable name or to make your own
 type but it is very risky!
+
+Unlike C, Java can initialize the String and then assign it.
+    String str;
+    str = "I don't know";
+    System.out.println(str);
+
 5. The initial value of boolean type is false. You can use & | operations.
 The default value of a String is a special value, null
 The default value for the integer types char, int, byte, long, byte is 0
@@ -95,7 +101,10 @@ Always have this at the begining:
 Instead, we can use equals() to obtain comparison between the content of strings.
 12. float a = 1.2f  "f" here means the data type is float number.
 13. Because of the precision issues, you'd better not compare two float numbers.
-
+14. Bit Calculation. int num = 0x01; (We use int to operate bitwise operation)
+                    int num2 = 0x03;
+                    int ans = num1 & num2;
+15.
 
 L5-6
 1. Cast:
