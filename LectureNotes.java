@@ -118,16 +118,26 @@ System.out.println("Portion = "+portion);
 }
 
 L7-8
-1. Array:
+1. Numerical Array:
     int [] x;       // declare an array of integers of unknown length, the
     //square blanket is BEFORE variable name.
     int y = 15;
     double [] z = new double [y];       // declares and initializes the array z
     //with y doubles (all initially 0)
+2. String:
     String [] myStrings = new String [y];       // declares and initializes the
     //array myStrings with an array of Strings, all initially NULL
+
+    OR:
+    String myStrings []= new String [y];        // It does not matter whether
+    //the square bracket is before variable or after it.
+
     OR:
     String names [] = new String [] { " Bill ", " Ted", " Larry " };
+    // you cannot assign the size here
+
+    OR:
+    String names [];  //declare an array of string of unknown length
 2.
 
 
