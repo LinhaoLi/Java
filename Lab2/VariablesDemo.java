@@ -11,7 +11,7 @@ public class VariablesDemo{
 
       System.out.println("x equals " + x);
 
-      //y = (double)(1/x) - 1;
+      //y = (double)1/x - 1;
       y = (1/(double)x) - 1;
 
       System.out.println("y equals " + y);
