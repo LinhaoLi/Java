@@ -5,6 +5,7 @@ public class LectureNotes{
 /*L1-2
 0. keyboard.nextLine(): Print out whatever sentence you put in
     keyboard.next(): Print out whatever word you put in
+    Variable.toLowercase : only take and to string
 1. Variable names cannot begin with numbers
 2. println has built in "\n" at the end of string
 
@@ -38,6 +39,7 @@ public class HelloWorld{
     }
 5. System.out.print()        //No '\n'
 6. String sentence = keyboard.nextLine();       //This is the way you call functions
+7. y = (1/(double)x) - 1;                   //x is in int. y is in double. This assingment will let y be 0.8 while x = 5;
 
 L3-4
 0. Double.parseDouble: convert string to a double
