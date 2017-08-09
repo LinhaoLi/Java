@@ -1,10 +1,14 @@
-import java.io.*;
+
 public class javatest{
 
    public static void main(String args[]) {
-      char a = 's';
+       try {
+    throw new ArithmeticException ("EOFException: whatever");
 
-      System.out.print("Return Value :" );
-      System.out.println(toUpperCase(a) );
+    }
+    catch ( ArithmeticException e) {
+    System .out . println (" Oops : " + e);
+    }
    }
+
 }

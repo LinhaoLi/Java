@@ -5,7 +5,6 @@ public class LectureNotes{
 /*L1-2
 0. keyboard.nextLine(): Print out whatever sentence you put in
     keyboard.next(): Print out whatever word you put in
-    Variable.toLowercase : only take and to string
 1. Variable names cannot begin with numbers
 2. println has built in "\n" at the end of string
 
@@ -39,7 +38,6 @@ public class HelloWorld{
     }
 5. System.out.print()        //No '\n'
 6. String sentence = keyboard.nextLine();       //This is the way you call functions
-7. y = (1/(double)x) - 1;                   //x is in int. y is in double. This assingment will let y be 0.8 while x = 5;
 
 L3-4
 0. Double.parseDouble: convert string to a double
@@ -201,6 +199,7 @@ L7-8
     String names [];  //declare an array of string of unknown length
 3.  Variables [ Variables.length - 1] = 'C';    To reach the last element
 
+
 L9-10
 0. double = Math.sqrt(double);
     double = Math . random ();
@@ -208,8 +207,79 @@ L9-10
     parameter: something that is used by a method
 2. String methods will return a string but not modify the original string.
    StringBuilder is a String that can be modified
-3. StringBuilder sb = new StringBuilder ( msg );
-    StringBuilder sb2 = sb;         The change if sb will lead to the change of sb2.
+3.  {
+        String msg = "abc ";
+        StringBuilder sb = new StringBuilder ( msg );
+        StringBuilder sb2 = sb;
+
+         System .out . println (sb. toString ());
+         System .out . println (sb2 . toString ());
+
+         sb. reverse ();
+
+         System .out . println (sb. toString ());
+         System .out . println (sb2 . toString ());
+     }
+     AND
+     {
+         String msg = " POOL ";
+         StringBuilder sb = new StringBuilder ( msg );
+         StringBuilder sb2 = sb;
+
+         sb. reverse ();
+
+         sb = new StringBuilder ( msg );
+
+         System .out . println (sb. toString ());
+         System .out . println (sb2 . toString ());
+    }
+
+4. This piece of code:
+
+    public String[] foo() {
+
+        return "Hello, World!"
+    }
+
+    is NOT correct, because the program is looking an array of string not just a string.
+5. For a Java program to work, it HAS to have a main method that is marked public
+ static void main and MUST accept the arguments String[].
+
+L11-12
+1. The optional "finally" block is always executed at the end of the catch region:
+after the try block completes successfully, or after a catch block is executed.
+
+try{
+	throw new EOFException ("EOFException: whatever");
+}
+
+catch(EOFException e){
+
+}
+
+finally{
+
+}
+
+
+
+A unix/linux tool called file can scan the contents of a file and determine its type
+	~> file HelloWorld.java
+	HelloWorld.java: ASCII C++ program text
+	~> file HelloWorld.class
+	HelloWorld.class: compiled Java class data, version 50.0 (Java 1.6)
+	~> file runButton.png
+	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
+
+
+
+
+
+
+
+
+
+
 
 */
 //Debug
