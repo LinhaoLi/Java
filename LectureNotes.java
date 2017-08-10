@@ -261,9 +261,18 @@ finally{
 
 }
 
+2. reference:
+    catch ( NumberFormatException e) {
+        System .err . println (" invalid number ");
+    }
+3. It must be followed by one or more catch blocks in increasing order of
+generality: that is, from the most specific to the most general;
 
+4. Methods should declare the exceptions they can throw:
+        public void read () throws IOException
+        { read data from a file }
 
-A unix/linux tool called file can scan the contents of a file and determine its type
+N . A unix/linux tool called file can scan the contents of a file and determine its type
 	~> file HelloWorld.java
 	HelloWorld.java: ASCII C++ program text
 	~> file HelloWorld.class
@@ -271,7 +280,8 @@ A unix/linux tool called file can scan the contents of a file and determine its 
 	~> file runButton.png
 	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
 
-
+L13-14
+1. 
 
 
 
