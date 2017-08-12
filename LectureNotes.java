@@ -124,7 +124,7 @@ Instead, we can use equals() to obtain comparison between the content of strings
     }
 
     It returns both for the new version of java. The reason can be reached by
-    compare the memory location. New version of Java refers to the same location
+    comparing the memory location. New version of Java refers to the same location
     if the contents of the string are the same.
 
     2:
@@ -281,8 +281,9 @@ N . A unix/linux tool called file can scan the contents of a file and determine 
 	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
 
 L13-14
+0. name.equalsIgnoreCase: String comparison with no difference between upper and lower cases.
 1. this:
-    inside the object. you can use "this.name" instead of just "name" to make things clear.
+    inside the object. you can use "this.name" instead of just "name" as instance variable to make things clear.
     But outside the object, you should always have objectName.name.
 2. In a method, the parameter name is local to the method.
 3. Method parameter conversion: byte -> short -> int -> long -> float -> double
@@ -294,6 +295,8 @@ L13-14
                                     You cannot use the instance variable's "name"
                                     to refer to the variable anywhere outside the class
 However, you can change by using the method in the same class.
+private instance variable and method can only be accessed in the class defination.
+
 6. Accessors method: Allow user to look at the data in a private instance variable.
 
 public String getName();
@@ -303,10 +306,42 @@ public String getName();
 
 7. Mutator method(set method/setters):
 
+public void setPrice(int count, double costForCount)
+{
+    if ((count <= 0) || (costForCount <= 0))
+    {
+        System.out.println("Error: Bad parameter in " +
+        "setPrice.");
+        System.exit(0);
+    }
+    else
+    {
+        groupCount = count;
+        groupPrice = costForCount;
+    }
+}
 
+8. Method call method:
+    In a class, if a method call another method, the objectName is omitted. like"rename()" or "this.rename()"
+    rather than "objectName.rename()"
 
-
-
+9. Encapsulation:
+    /***/ for class interface comments
+    //for implementation comments
+10. javadoc
+11. In UML Class Diagram: A minus sign means the member is private.
+                        A plus sign means the member is public.
+12. equals defination:
+    If you want to compare the content of two different strings: you can define
+a equals method in your class:
+    public boolean equals(Species otherObject)
+    {
+        return (this.name.equalsIgnoreCase(otherObject.name)) &&
+        (this.population == otherObject.population) &&
+        (this.growthRate == otherObject.growthRate);
+    }
+13. Boolean variable naming: isName or hasName.
+14. 
 
 */
 //Debug
