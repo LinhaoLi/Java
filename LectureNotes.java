@@ -281,10 +281,27 @@ N . A unix/linux tool called file can scan the contents of a file and determine 
 	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
 
 L13-14
-1. 
+1. this:
+    inside the object. you can use "this.name" instead of just "name" to make things clear.
+    But outside the object, you should always have objectName.name.
+2. In a method, the parameter name is local to the method.
+3. Method parameter conversion: byte -> short -> int -> long -> float -> double
+4. you cannot do:
+    public void doStuff(int n1,n2)
+    you have to seperate them.
+5. Information hiding (abstraction): Precondition and Postcondition in comments.
+                                    access modifier: private & public
+                                    You cannot use the instance variable's "name"
+                                    to refer to the variable anywhere outside the class
+However, you can change by using the method in the same class.
+6. Accessors method: Allow user to look at the data in a private instance variable.
 
+public String getName();
+{
+    return name;
+}
 
-
+7. Mutator method(set method/setters):
 
 
 
