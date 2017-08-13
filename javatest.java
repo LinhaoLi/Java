@@ -1,6 +1,5 @@
-
 public class javatest{
-public javatest () { }；
+//public javatest () { }；
    public static void main(String args[]) {
        javatest chairs = new javatest ();
   chairs . number = 50;
