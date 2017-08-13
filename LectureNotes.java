@@ -326,7 +326,7 @@ public void setPrice(int count, double costForCount)
     rather than "objectName.rename()"
 
 9. Encapsulation:
-    /***/ for class interface comments
+    /***/   /* for class interface comments
     //for implementation comments
 10. javadoc
 11. In UML Class Diagram: A minus sign means the member is private.
@@ -341,7 +341,7 @@ a equals method in your class:
         (this.growthRate == otherObject.growthRate);
     }
 13. Boolean variable naming: isName or hasName.
-14. 
+14.
 
 */
 //Debug
