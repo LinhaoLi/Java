@@ -175,6 +175,12 @@ System.out.println("Portion = "+portion);
 //i only exist within the curly bracket.
 }
 
+6. boolean canMakeCake = ( flour >= (1/2) ); // this is not correct, 1/2 will return 0. you should do 1.0/2.0.
+
+
+
+7.
+
 
 L7-8
 1. Numerical Array:
@@ -359,9 +365,7 @@ public Pet(String initialName, int initialAge, double initialWeight)
 name.
 import java.util.Scanner;
 
-/**
 Class of static methods to perform dimension conversions.
-*/
 public class DimensionConverter
 {
     public static final int INCHES_PER_FOOT = 12;
@@ -375,11 +379,8 @@ public class DimensionConverter
     }
 }
 
-/**
-    Demonstration of using the class DimensionConverter.
-*/
-public class DimensionConverterDemo
-{
+Demonstration of using the class DimensionConverter.
+public class DimensionConverterDemo{
     public static void main(String[] args)
     {
         Scanner keyboard = new Scanner(System.in);
@@ -394,10 +395,14 @@ public class DimensionConverterDemo
 
     }
 }
-18. static method cannot call instance variable, nor instance variable. All it can call
-is static members. However, instance variable and method can call static method or variables.
 
-19. 
+18. static method cannot call instance variable, nor instance variable. All it can call
+    is static members. However, instance variable and method can call static method or variables.
+    A static method cannot call a nonstatic method unless it has an object to do so.
+
+19.
+
+
 */
 //Debug
     }
