@@ -326,7 +326,7 @@ public void setPrice(int count, double costForCount)
     rather than "objectName.rename()"
 
 9. Encapsulation:
-    /***/ for class interface comments
+    /***/   /* for class interface comments
     //for implementation comments
 10. javadoc
 11. In UML Class Diagram: A minus sign means the member is private.
@@ -341,6 +341,7 @@ a equals method in your class:
         (this.growthRate == otherObject.growthRate);
     }
 13. Boolean variable naming: isName or hasName.
+<<<<<<< HEAD
 14. When defining a constructor for a class, you can use this as a name for
 another constructor in the same class. Any call to this must be the first
 action taken by the constructor.
@@ -398,6 +399,9 @@ public class DimensionConverterDemo
 is static members. However, instance variable and method can call static method or variables.
 
 19. 
+=======
+14.
+>>>>>>> 97557e1c55ac3c48446eb032bda6fc9dc6f94408
 
 */
 //Debug
