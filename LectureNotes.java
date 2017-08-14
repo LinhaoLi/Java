@@ -347,7 +347,6 @@ a equals method in your class:
         (this.growthRate == otherObject.growthRate);
     }
 13. Boolean variable naming: isName or hasName.
-<<<<<<< HEAD
 14. If you define at least one constructor in your class, no constructors are created for you automatically.
 Else, the program will creat a "className()" constructor for you with all instance variable set to the default value.
 So when you define at least one constructors, you should define the no parameter one as well.
@@ -356,23 +355,22 @@ Q: Do we need to define all the variables?
 
 15. Group the construction definitions:
     Put the construction method and its corresponding set method together.
-16. 
-=======
-14. When defining a constructor for a class, you can use this as a name for
+
+16. When defining a constructor for a class, you can use this as a name for
 another constructor in the same class. Any call to this must be the first
 action taken by the constructor.
     public Pet3(String initialName)
     {
     this(initialName, 0, 0);
-15. method call in constructor:
+17. method call in constructor:
 public Pet(String initialName, int initialAge, double initialWeight)
     {
     setPet(initialName, initialAge, initialWeight);
     }
-16. Define static variable:
+18. Define static variable:
     public static final double FEET_PER_YARD = 3; //this one cannot change value
     private static int numberOfInvocations;     //this one can
-17. When you call a static method, you write the class name instead of an object
+19. When you call a static method, you write the class name instead of an object
 name.
 import java.util.Scanner;
 
@@ -407,12 +405,11 @@ public class DimensionConverterDemo{
     }
 }
 
-18. static method cannot call instance variable, nor instance variable. All it can call
+20. static method cannot call instance variable, nor instance variable. All it can call
     is static members. However, instance variable and method can call static method or variables.
     A static method cannot call a nonstatic method unless it has an object to do so.
 
-19.
->>>>>>> 83f1ab05cf7b37b8f8d7904a080f1f2767e6bfa9
+21.
 
 
 */
