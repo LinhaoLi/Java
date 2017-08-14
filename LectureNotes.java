@@ -175,6 +175,12 @@ System.out.println("Portion = "+portion);
 //i only exist within the curly bracket.
 }
 
+6. boolean canMakeCake = ( flour >= (1/2) ); // this is not correct, 1/2 will return 0. you should do 1.0/2.0.
+
+
+
+7.
+
 
 L7-8
 1. Numerical Array:
@@ -341,6 +347,7 @@ a equals method in your class:
         (this.growthRate == otherObject.growthRate);
     }
 13. Boolean variable naming: isName or hasName.
+<<<<<<< HEAD
 14. If you define at least one constructor in your class, no constructors are created for you automatically.
 Else, the program will creat a "className()" constructor for you with all instance variable set to the default value.
 So when you define at least one constructors, you should define the no parameter one as well.
@@ -350,6 +357,62 @@ Q: Do we need to define all the variables?
 15. Group the construction definitions:
     Put the construction method and its corresponding set method together.
 16. 
+=======
+14. When defining a constructor for a class, you can use this as a name for
+another constructor in the same class. Any call to this must be the first
+action taken by the constructor.
+    public Pet3(String initialName)
+    {
+    this(initialName, 0, 0);
+15. method call in constructor:
+public Pet(String initialName, int initialAge, double initialWeight)
+    {
+    setPet(initialName, initialAge, initialWeight);
+    }
+16. Define static variable:
+    public static final double FEET_PER_YARD = 3; //this one cannot change value
+    private static int numberOfInvocations;     //this one can
+17. When you call a static method, you write the class name instead of an object
+name.
+import java.util.Scanner;
+
+Class of static methods to perform dimension conversions.
+public class DimensionConverter
+{
+    public static final int INCHES_PER_FOOT = 12;
+    public static double convertFeetToInches(double feet)
+    {
+        return feet * INCHES_PER_FOOT;
+    }
+        public static double convertInchesToFeet(double inches)
+    {
+        return inches / INCHES_PER_FOOT;
+    }
+}
+
+Demonstration of using the class DimensionConverter.
+public class DimensionConverterDemo{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter a measurement in inches: ");
+        double inches = keyboard.nextDouble();
+        double feet = DimensionConverter.convertInchesToFeet(inches);
+        System.out.println(inches + " inches = " + feet + " feet.");
+        System.out.print("Enter a measurement in feet: ");
+        feet = keyboard.nextDouble();
+        inches = DimensionConverter.convertFeetToInches(feet);
+        System.out.println(feet + " feet = " + inches + " inches.");
+
+    }
+}
+
+18. static method cannot call instance variable, nor instance variable. All it can call
+    is static members. However, instance variable and method can call static method or variables.
+    A static method cannot call a nonstatic method unless it has an object to do so.
+
+19.
+>>>>>>> 83f1ab05cf7b37b8f8d7904a080f1f2767e6bfa9
 
 
 */
