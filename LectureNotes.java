@@ -341,7 +341,16 @@ a equals method in your class:
         (this.growthRate == otherObject.growthRate);
     }
 13. Boolean variable naming: isName or hasName.
-14.
+14. If you define at least one constructor in your class, no constructors are created for you automatically.
+Else, the program will creat a "className()" constructor for you with all instance variable set to the default value.
+So when you define at least one constructors, you should define the no parameter one as well.
+
+Q: Do we need to define all the variables?
+
+15. Group the construction definitions:
+    Put the construction method and its corresponding set method together.
+16. 
+
 
 */
 //Debug
