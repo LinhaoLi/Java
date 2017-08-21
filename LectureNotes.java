@@ -178,10 +178,6 @@ System.out.println("Portion = "+portion);
 6. boolean canMakeCake = ( flour >= (1/2) ); // this is not correct, 1/2 will return 0. you should do 1.0/2.0.
 
 
-
-7.
-
-
 L7-8
 1. Numerical Array:
     int [] x;       // declare an array of integers of unknown length, the
