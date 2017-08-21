@@ -43,7 +43,7 @@ public class CoffeeBot{
             }
             else if(choice.equals("n")){
                 System.out.println("Come back next time, " + name + ".");
-                return;
+                System.exit(1);
                 }
             else{
                 System.out.println("Invalid response. Try again.");
@@ -51,12 +51,24 @@ public class CoffeeBot{
         }
         System.out.println("Order selection");
         System.out.println("---------------\n");
-        System.out.println("There are "+cups+"s coffee cup in stock and each costs $2.00.");
-        System.out.println("There are "+shots+"s coffee shot in stock and each costs $1.00.\n");
+		if(cups == 1){
+			System.out.println("There is "+cups+" coffee cup in stock and each costs $2.00.");
+		}
+		else{
+			System.out.println("There are "+cups+" coffee cups in stock and each costs $2.00.");
 
-        System.out.print("How many cups of coffee would you like ?");
+		}
+		if(shots == 1){
+			System.out.println("There is "+shots+" coffee shot in stock and each costs $1.00.\n");
+		}
+        else{
+			System.out.println("There are "+shots+" coffee shots in stock and each costs $1.00.\n");
+
+		}
+
+        System.out.print("How many cups of coffee would you like? ");
         int userCup = keyboard.nextInt();
-
+		System.out.println("");
         if(userCup == 0){
             System.out.println("No cups, no coffee. Goodbye.");
             return;
@@ -73,7 +85,7 @@ public class CoffeeBot{
         int sum = 0;
         int i = 0;
         while(i < userCup){
-            System.out.println("How many coffee shots in cup " + (i+1) + "?");
+            System.out.print("How many coffee shots in cup " + (i+1) + "? ");
             userShots[i] = keyboard.nextInt();
             if(userShots[i]<0){
                 System.out.println("Does not compute. Try again.");
@@ -81,8 +93,13 @@ public class CoffeeBot{
             }
 
             if((sum + userShots[i]) > shots){
-                System.out.println("There is only" + (shots - sum) + " coffee shot left. Try again.");
-                continue;
+				if((shots - sum)==1){
+					System.out.println("There is only" + (shots - sum) + " coffee shot left. Try again.");
+				}
+				else{
+                	System.out.println("There are only" + (shots - sum) + " coffee shots left. Try again.");
+				}
+				continue;
             }
             sum += userShots[i];
             i++;
@@ -92,9 +109,15 @@ public class CoffeeBot{
         int price = 0;
 		i = 0;
         while(i < userCup){
+			String appendix = "";
             price = price + 2 + userShots[i];
-            System.out.println("Cup "+ (i+1) +" has " + userShots[i] + " shot and will cost $"+ (2+userShots[i]) +".00");
-        }
+			if(userShots[i]==1){
+				appendix = "s";
+			}
+            System.out.println("Cup "+ (i+1) +" has " + userShots[i] + " shot"+ appendix + " and will cost $"+ (2+userShots[i]) +".00");
+        	i++;
+			appendix = "";
+		}
         System.out.println("\n\n"+ userCup +" coffees to purchase.\nPurchase price is $"+price+".00\nProceed to payment? (y/n) ");
 
 
