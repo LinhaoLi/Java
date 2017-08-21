@@ -109,21 +109,48 @@ public class CoffeeBot{
         int price = 0;
 		i = 0;
         while(i < userCup){
-			String appendix = "";
+			String appendix = "s";
             price = price + 2 + userShots[i];
 			if(userShots[i]==1){
-				appendix = "s";
+				appendix = "";
 			}
             System.out.println("Cup "+ (i+1) +" has " + userShots[i] + " shot"+ appendix + " and will cost $"+ (2+userShots[i]) +".00");
         	i++;
-			appendix = "";
+			appendix = "s";
 		}
-        System.out.println("\n\n"+ userCup +" coffees to purchase.\nPurchase price is $"+price+".00\nProceed to payment? (y/n) ");
 
+        if(userCup == 1){
+            System.out.println("\n\n"+ userCup +" coffees to purchase.\nPurchase price is $"+price+".00\nProceed to payment? (y/n) ");
+        }
+        else{
+            System.out.println("\n\n"+ userCup +" coffee to purchase.\nPurchase price is $"+price+".00\nProceed to payment? (y/n) ");
+        }
+        choice = keyboard.next();
 
+        while(true){
+
+                if(choice.equals("y")){
+                    break;
+                }
+                else if(choice.equals("n")){
+                    System.out.println("Come back next time, " + name + ".");
+                    System.exit(1);
+                    }
+                else{
+                    System.out.println("Invalid response. Try again.");
+                }
+            }
+        System.out.println("\nOrder payment\n-------------\n");
+        while(price!=0){
+
+            System.out.println("$"+ price +".00 remains to be paid. Enter coin or note:");
+            
+        }
 
 
 
 
     }
+
+
 }
