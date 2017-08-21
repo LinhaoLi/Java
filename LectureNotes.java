@@ -405,7 +405,7 @@ public class DimensionConverterDemo{
     is static members. However, instance variable and method can call static method or variables.
     A static method cannot call a nonstatic method unless it has an object to do so.
 
-21. In a static method, “there is no this there.”
+21. In a static method, "there is no this there."
 
 
 */
