@@ -209,7 +209,9 @@ L9-10
 
     double [] values = new double [] {3.2 , -1.6, 9.0};
     String readable = Arrays.toString(values );
-    System.out.println(readable );                              
+    System.out.println(readable );
+    Arrays.sort(Varible);      this can sort the array in ascend order
+
 
 1. argument: something that is passed to a method
     parameter: something that is used by a method
@@ -252,6 +254,8 @@ L9-10
     is NOT correct, because the program is looking an array of string not just a string.
 5. For a Java program to work, it HAS to have a main method that is marked public
  static void main and MUST accept the arguments String[].
+
+6. We use %% to print a % sign in printf
 
 L11-12
 1. The optional "finally" block is always executed at the end of the catch region:
