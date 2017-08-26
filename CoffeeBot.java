@@ -33,10 +33,17 @@ public class CoffeeBot{
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Hello, what's your name? ");
         String name = keyboard.nextLine();
+<<<<<<< HEAD
 		String choice;
         while(true){
             System.out.print("Would you like to order some coffee, "+ name +"? (y/n) ");
             choice = keyboard.next();
+=======
+
+        while(true){
+            System.out.print("Would you like to order some coffee, "+ name +"? (y/n) ");
+            String choice = keyboard.next();
+>>>>>>> fbb939f476624b4ba3b451d60632c7728c793f12
 
             if(choice.equals("y")){
                 System.out.println("Great! Let's get started.\n");
@@ -146,7 +153,11 @@ public class CoffeeBot{
 
         double constPrice = price;
         System.out.println("\nOrder payment\n-------------\n");
+<<<<<<< HEAD
         while(true){
+=======
+        while(price > 0){
+>>>>>>> fbb939f476624b4ba3b451d60632c7728c793f12
 
             System.out.printf("$%.2f remains to be paid. Enter coin or note: ",price);
             String cashOrCoins = keyboard.next();
@@ -155,6 +166,7 @@ public class CoffeeBot{
             ||(cashOrCoins.equals("$0.50"))||(cashOrCoins.equals("$0.20"))||(cashOrCoins.equals("$0.10"))||(cashOrCoins.equals("$0.05")))){
                 System.out.println("Invalid coin or note. Try again.");
                 continue;
+<<<<<<< HEAD
 
             }
 			cashOrCoins = cashOrCoins.substring(0,0)+' '+cashOrCoins.substring(1);
@@ -163,6 +175,49 @@ public class CoffeeBot{
 			if(price < 0.01 && price > -0.01){
 				System.out.printf("\nYou gave $%.2f\nPerfect! No change given.", constPrice - price);
 				break;
+=======
+
+            }
+			cashOrCoins = cashOrCoins.substring(0,0)+' '+cashOrCoins.substring(1);
+			double paid = Double.parseDouble(cashOrCoins.trim());
+            price -= paid;
+			if(price < 0.01 && price > 0){
+				System.out.printf("You gave $%.2f\nPerfect! No change given.", constPrice - price);
+
+			}
+			else if(price < 0){
+                System.out.printf("You gave $%.2f\nYour change:\n", constPrice - price);
+                double[] cashes = new double[]{100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05};
+                double remainder = -price;
+                for(int k = 0; k <11; k ++){
+                    int myNumber = (int)(remainder/cashes[k]);
+                    if(myNumber == 0){
+                        continue;
+                    }
+                    else{
+                        System.out.printf(myNumber+" x "+"$"+"%.2f\n",cashes[k]);
+						remainder %= cashes[k];
+                    }
+                }
+
+			}
+			System.out.println("\nThank you, " + name + ".\nSee you next time.");
+            System.exit(0);
+		}
+		/*$4.00 remains to be paid. Enter coin or note: $100.00
+You gave $100.00
+Your change:
+1 x $50.00
+2 x $20.00
+1 x $5.00
+1 x $1.00
+Thank you, Scott.
+See you next time.
+*/
+
+
+        }
+>>>>>>> fbb939f476624b4ba3b451d60632c7728c793f12
 
 			}
 			else if(price < 0){
@@ -183,8 +238,11 @@ public class CoffeeBot{
 
 			}
 
+<<<<<<< HEAD
 		}
 		System.out.println("\nThank you, " + name + ".\nSee you next time.");
         System.exit(0);
     }
+=======
+>>>>>>> fbb939f476624b4ba3b451d60632c7728c793f12
 }
