@@ -205,6 +205,12 @@ L7-8
 L9-10
 0. double = Math.sqrt(double);
     double = Math . random ();
+    Arrays.toString(Int[] or other types of array);
+
+    double [] values = new double [] {3.2 , -1.6, 9.0};
+    String readable = Arrays.toString(values );
+    System.out.println(readable );                              
+
 1. argument: something that is passed to a method
     parameter: something that is used by a method
 2. String methods will return a string but not modify the original string.
@@ -406,7 +412,7 @@ public class DimensionConverterDemo{
     A static method cannot call a nonstatic method unless it has an object to do so.
 
 21. In a static method, "there is no this there."
-22. 
+22.
 
 
 
