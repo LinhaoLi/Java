@@ -256,6 +256,13 @@ L9-10
  static void main and MUST accept the arguments String[].
 
 6. We use %% to print a % sign in printf
+7. static variable uses capital character;
+
+8. public static int add(int ... i){    // add(int[] i)
+
+}
+
+
 
 L11-12
 1. The optional "finally" block is always executed at the end of the catch region:
