@@ -259,7 +259,7 @@ L9-10
 7. static variable uses capital character;
 
 8. public static int add(int ... i){    // add(int[] i)
-
+//varargs
 }
 
 
