@@ -291,13 +291,17 @@ generality: that is, from the most specific to the most general;
         public void read () throws IOException
         { read data from a file }
 
-N . A unix/linux tool called file can scan the contents of a file and determine its type
+        N . A unix/linux tool called file can scan the contents of a file and determine its type
 	~> file HelloWorld.java
 	HelloWorld.java: ASCII C++ program text
 	~> file HelloWorld.class
 	HelloWorld.class: compiled Java class data, version 50.0 (Java 1.6)
 	~> file runButton.png
 	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
+    }
+5.  exceptionName.printStackTrace();
+
+
 
 L13-14
 0. name.equalsIgnoreCase: String comparison with no difference between upper and lower cases.
