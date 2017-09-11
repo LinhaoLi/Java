@@ -299,8 +299,19 @@ generality: that is, from the most specific to the most general;
 	~> file runButton.png
 	runButton.png: PNG image, 30 x 24, 8-bit/color RGBA, non-interlaced
     }
-5.  exceptionName.printStackTrace();
 
+5.  exceptionName.printStackTrace();
+6. catch (ArithmeticException byzero) {
+			System.out.println("please provide non-zero number!");
+			byzero.printStackTrace();
+		} catch (IndexOutOfBoundsException ioobe) {
+			//IndexOutOfBoundsException are pre installed.
+		} catch (NumberFormatException nfe) {
+			//Same
+		}finally{
+        // It will be executed anyway
+        }
+7. 
 
 
 L13-14
