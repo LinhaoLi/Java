@@ -35,11 +35,33 @@ public class MazeGame {
     // e.g. Have the following line in the initialiseGame method.
     // sampleVariable = 1;
     static int sampleVariable;
-    static ArrayList<String> currentFile = new ArrayList<>();
+    static ArrayList<String> currentMap = new ArrayList<>();
+
     private static int lives;
     private static int steps;
     private static int golds;
     private static int rows;
+    private static int cols;
+
+
+
+
+    /**
+     * Set the given place in the Maze to a given symbol
+     *
+     * @args x The x coordinate.
+     * @args y The y coordinate.
+     * @args c the symbol which is going to replace the current one
+     */
+    public static void setCood(int x,int y,char c){
+        String currentString = currentMap.get(y);
+        String newString = currentString.substring(0,x)+ c + currentString.substring(x+1);
+        currentMap.set(x,newString);
+    }
+
+
+
+
 
 
     /**
@@ -61,19 +83,24 @@ public class MazeGame {
 
             File file = new File(configFileName);
             Scanner rp = new Scanner(file);
+
             while(rp.hasNext()){
+                currentMap.add(rp.nextLine());
+            }
 
-                currentFile.add(rp.nextLine());
-
-                }
-            String partial[] = currentFile.get(0).split(" ");
+            String partial[] = currentMap.get(0).split(" ");
 
             lives = Integer.parseInt(partial[0]);
             steps = Integer.parseInt(partial[1]);
             golds = Integer.parseInt(partial[2]);
             rows = Integer.parseInt(partial[3]);
 
+            currentMap.remove(0);
+            cols = currentMap.get(0).length();
             rp.close();
+
+
+
     }
 
     /**
@@ -88,7 +115,18 @@ public class MazeGame {
      * @throws IOException If there was an error writing the game to the file.
      */
     public static void saveGame(String toFileName) throws IOException {
-        // TODO: Implement this method.
+        File file = new File(toFileName);
+        PrintWriter wp = new PrintWriter(file);
+
+		for(int i = 0 ; i < currentMap.size() ; i++){
+            if(i == 0){
+                wp.printf("%d %d %d %d\n",lives,steps,golds,rows);
+            }
+            else{
+			    wp.println(currentMap.get(i-1));
+            }
+		}
+		wp.close();
     }
 
     /**
@@ -97,8 +135,17 @@ public class MazeGame {
      * @return The players current x position.
      */
     public static int getCurrentXPosition() {
-        // TODO: Implement this method.
-        return 0;
+        for(int i = 0 ; i < rows; i++){
+            for(int j = 0; j < cols;j++){
+                char currentSymbol = currentMap.get(i).charAt(j);
+
+                if(currentSymbol == '&'){
+                    return j;
+                }
+            }
+            return 0;
+        }
+        return -1;
     }
 
     /**
@@ -107,8 +154,15 @@ public class MazeGame {
      * @return The players current y position.
      */
     public static int getCurrentYPosition() {
-        // TODO: Implement this method.
-        return 0;
+        for(int i = 0 ; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                char currentSymbol = currentMap.get(i).charAt(j);
+                if(currentSymbol == '&'){
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     /**
@@ -118,7 +172,8 @@ public class MazeGame {
      */
     public static int numberOfLives() {
         // TODO: Implement this method.
-        return 0;
+
+        return lives;
     }
 
     /**
@@ -128,7 +183,7 @@ public class MazeGame {
      */
     public static int numberOfStepsRemaining() {
         // TODO: Implement this method.
-        return 0;
+        return steps;
     }
 
     /**
@@ -138,7 +193,7 @@ public class MazeGame {
      */
     public static int amountOfGold() {
         // TODO: Implement this method.
-        return 0;
+        return golds;
     }
 
 
@@ -149,8 +204,16 @@ public class MazeGame {
      * @return True if the player has completed the maze.
      */
     public static boolean isMazeCompleted() {
-        // TODO: Implement this method.
-        return false;
+        for(int i = 0 ; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                char currentSymbol = currentMap.get(i).charAt(j);
+
+                if(currentSymbol == '@'){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
@@ -163,8 +226,9 @@ public class MazeGame {
      * @return True if any one of the conditions that end the game is true.
      */
     public static boolean isGameEnd() {
-        // TODO: Implement this method.
-        return false;
+
+        return (lives == 0)||(steps == 0)||(isMazeCompleted());
+
     }
 
     /**
@@ -177,8 +241,7 @@ public class MazeGame {
      *         otherwise, false (the coordinates are out or range).
      */
     public static boolean isValidCoordinates(int x, int y) {
-        // TODO: Implement this method.
-        return false;
+        return (( x >= 0 && x < cols ) && (y>=0 && y < rows));
     }
 
     /**
@@ -193,8 +256,10 @@ public class MazeGame {
      * @return True if the move is valid, otherwise false.
      */
     public static boolean canMoveTo(int x, int y) {
-        // TODO: Implement this method.
-        return false;
+
+        char currentSymbol = currentMap.get(y).charAt(x);
+
+    return isValidCoordinates(x,y)&&currentSymbol=='#'&&!isGameEnd();
     }
 
     /**
@@ -213,6 +278,19 @@ public class MazeGame {
      * @args y The y coordinate to move to.
      */
     public static void moveTo(int x, int y) {
+        if(!canMoveTo(x, y)){
+            System.out.println("Invalid move. One life lost.");
+            lives--;
+        }
+        else{
+            if(Character.isDigit(currentMap.get(y).charAt(x))){
+                golds += (int)(currentMap.get(y).charAt(x)-'0');
+            }
+            setCood(x,y,'&');
+            System.out.println("Moved to (" + x + ", " + y + ")");
+        }
+
+
         // TODO: Implement this method.
     }
 
@@ -220,7 +298,17 @@ public class MazeGame {
      * Prints out the help message.
      */
     public static void printHelp() {
-        // TODO: Implement this method.
+
+        System.out.println("Usage: You can type one of the following commands.");
+        System.out.println("help         Print this help message.");
+        System.out.println("board        Print the current board.");
+        System.out.println("status       Print the current status.");
+        System.out.println("left         Move the player 1 square to the left.");
+        System.out.println("right        Move the player 1 square to the right.");
+        System.out.println("up           Move the player 1 square up.");
+        System.out.println("down         Move the player 1 square down.");
+        System.out.println("save <file>  Save the current game configuration to the given file.");
+
     }
 
     /**
@@ -228,12 +316,21 @@ public class MazeGame {
      */
     public static void printStatus() {
         // TODO: Implement this method.
+
+        System.out.printf("Number of live(s): %d\n", lives);
+        System.out.printf("Number of step(s) remaining: %d\n",steps);
+        System.out.printf("Amount of gold: %d\n",golds);
+
     }
 
     /**
      * Prints out the board.
      */
     public static void printBoard() {
+        for(String currentRow: currentMap){
+
+            System.out.println(currentRow);
+        }
         // TODO: Implement this method.
     }
 
@@ -252,6 +349,26 @@ public class MazeGame {
      */
     public static void performAction(String action) throws IllegalArgumentException {
         // TODO: Implement this method.
+        String[] userInputSection = action.split(" ");
+        if(userInputSection.length==2 && userInputSection.equals("save")){
+
+        }
+        else if(userInputSection.length==1){
+            switch(action){
+                case "help":
+                case "board":
+                case "status":
+                case "left":
+                case "right":
+                case "up":
+                case "down":
+                default:
+                    throw new IllegalArgumentException("Error: Input invalid");
+            }
+        }
+        else{
+            throw new IllegalArgumentException("Error: Input invalid");
+        }
     }
 
     /**
@@ -281,7 +398,24 @@ public class MazeGame {
                 System.out.println("Error: Too many arguments given. Expected 1 argument, found "+ args.length + ".");
             }
             System.out.println("Usage: MazeGame [<game configuration file>|DEFAULT]");
-            System.exit(0);
+            return;
+        }
+
+
+
+
+
+        Scanner keyboard = new Scanner(System.in);
+        String userInput = new String();
+        try{
+            System.out.println("gg");
+
+
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("Error: Could not find command '"+ userInput +"'.");
+            System.out.println("To find the list of valid commands, please type \'help\'.");
+
         }
 
     }
