@@ -56,7 +56,7 @@ public class MazeGame {
     public static void setCood(int x,int y,char c){
         String currentString = currentMap.get(y);
         String newString = currentString.substring(0,x)+ c + currentString.substring(x+1);
-        currentMap.set(x,newString);
+        currentMap.set(y,newString);
     }
 
 
@@ -118,15 +118,11 @@ public class MazeGame {
         File file = new File(toFileName);
         PrintWriter wp = new PrintWriter(file);
 
-		for(int i = 0 ; i < currentMap.size() ; i++){
-            if(i == 0){
-                wp.printf("%d %d %d %d\n",lives,steps,golds,rows);
-            }
-            else{
-			    wp.println(currentMap.get(i-1));
-            }
-		}
-		wp.close();
+		wp.printf("%d %d %d %d\n",lives,steps,golds,rows);
+        for(String currentRow: currentMap){
+            wp.println(currentRow);
+        }
+	    wp.close();
         System.out.println("Successfully saved the current game configuration to \'"+toFileName+"\'.");
 
     }
@@ -145,7 +141,6 @@ public class MazeGame {
                     return j;
                 }
             }
-            return 0;
         }
         return -1;
     }
@@ -258,7 +253,7 @@ public class MazeGame {
      * @return True if the move is valid, otherwise false.
      */
     public static boolean canMoveTo(int x, int y) {
-        if(x<0||y<0){
+        if(x<0||y<0||x>=cols||y>=rows){
             return false;
         }
         char currentSymbol = currentMap.get(y).charAt(x);
@@ -287,11 +282,14 @@ public class MazeGame {
             lives--;
         }
         else{
+            System.out.println("Moved to (" + x + ", " + y + ").");
             if(Character.isDigit(currentMap.get(y).charAt(x))){
-                golds += (int)(currentMap.get(y).charAt(x)-'0');
+                int goldGain = (int)(currentMap.get(y).charAt(x)-'0');
+                System.out.println("Plus "+ goldGain +" gold.");
+                golds += goldGain;
             }
             setCood(x,y,'&');
-            System.out.println("Moved to (" + x + ", " + y + ")");
+
         }
 
 
@@ -355,7 +353,8 @@ public class MazeGame {
         // TODO: Implement this method.
 
         String[] userInputSection = action.split(" ");
-        if(userInputSection.length == 2 && userInputSection[0].equals("save")){
+        String command = userInputSection[0].toLowerCase();
+        if(userInputSection.length == 2 && command.equals("save")){
             try{
                 saveGame(userInputSection[1]);
             }
@@ -368,7 +367,7 @@ public class MazeGame {
         else if(userInputSection.length==1){
             int x = getCurrentXPosition();
             int y = getCurrentYPosition();
-            switch(action){
+            switch(command){
                 case "help":
                     printHelp();
                     break;
@@ -380,28 +379,40 @@ public class MazeGame {
                     break;
                 case "left":
                     if(canMoveTo(x-1, y)){
-                        moveTo(x-1,y);
                         setCood(x,y,'.');
                     }
+                    moveTo(x-1, y);
+                    steps--;
                     break;
                 case "right":
                     if(canMoveTo(x+1, y)){
-                        moveTo(x+1,y);
                         setCood(x,y,'.');
                     }
+                    moveTo(x+1,y);
+                    steps--;
                     break;
                 case "up":
                     if(canMoveTo(x, y-1)){
-                        moveTo(x,y-1);
                         setCood(x,y,'.');
                     }
+                    moveTo(x,y-1);
+                    steps--;
                     break;
                 case "down":
                     if(canMoveTo(x, y+1)){
-                        moveTo(x,y+1);
                         setCood(x,y,'.');
                     }
+                    moveTo(x,y+1);
+                    steps--;
                     break;
+                case " ":
+
+                    break;
+                case "debug":
+                    System.out.println(cols);
+                    System.out.println(rows);
+                    break;
+
                 default:
                     throw new IllegalArgumentException("Error: Input invalid");
             }
@@ -444,12 +455,19 @@ public class MazeGame {
 
         Scanner keyboard = new Scanner(System.in);
         String userInput = new String();
-        try{
-            while(true){
+
+        while(true){
+            try{
                 userInput = keyboard.nextLine();
                 performAction(userInput);
                 if(isGameEnd()){
-                    if(lives == 0&&steps == 0){
+                    if(isMazeCompleted()){
+                        System.out.println("Congratulations! You completed the maze!");
+                        System.out.println("Your final status is:");
+                        printStatus();
+
+                    }
+                    else if(lives == 0&&steps == 0){
                         System.out.println("Oh no! You have no lives and no steps left.");
                         System.out.println("Better luck next time!");
                     }
@@ -458,30 +476,22 @@ public class MazeGame {
                         System.out.println("Better luck next time!");
 
                     }
-                    else if(lives == 0){
+                    else{
                         System.out.println("Oh no! You have no lives left.");
                         System.out.println("Better luck next time!");
                     }
-                    else{
-                        System.out.println("Congratulations! You completed the maze!");
-                        System.out.println("Your final status is:");
-                        printStatus();
 
-                    }
                     return;
                 }
             }
-        }
-        catch(IllegalArgumentException e){
+            catch(IllegalArgumentException e){
             System.out.println("Error: Could not find command '"+ userInput +"'.");
             System.out.println("To find the list of valid commands, please type \'help\'.");
+            }
+            catch(NoSuchElementException e){
+                System.out.println("You did not complete the game.");
+                return;
+            }
         }
-        catch(NoSuchElementException e){
-            System.out.println("You did not complete the game.");
-            return;
-        }
-        return;
     }
-
-
 }
