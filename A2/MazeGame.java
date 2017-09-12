@@ -57,26 +57,23 @@ public class MazeGame {
      *         For example, if the input file could not be found.
      */
     public static void initialiseGame(String configFileName) throws IOException {
-        // TODO: Implement this method.
-        try{
+
+
             File file = new File(configFileName);
             Scanner rp = new Scanner(file);
             while(rp.hasNext()){
-                currentFile.add(rp.next());
-            }
-        }
-        catch(FileNotFoundException e){
-			//System.out.println("File not found.");
-			System.err.println(e);
-			e.printStackTrace();
-		}
-        //String status = ;
-        String partial[] = currentFile.get(0).split(" ");
-        lives = Integer.parseInt(partial[0]);
-        steps = Integer.parseInt(partial[1]);
-        golds = Integer.parseInt(partial[2]);
-        rows = Integer.parseInt(partial[3]);
 
+                currentFile.add(rp.nextLine());
+
+                }
+            String partial[] = currentFile.get(0).split(" ");
+
+            lives = Integer.parseInt(partial[0]);
+            steps = Integer.parseInt(partial[1]);
+            golds = Integer.parseInt(partial[2]);
+            rows = Integer.parseInt(partial[3]);
+
+            rp.close();
     }
 
     /**
@@ -265,12 +262,27 @@ public class MazeGame {
      */
     public static void main(String[] args) {
         // Run your program (reading in from args etc) from here.
-        try{initialiseGame(args[0]);}
-        catch(IOException e){
-            //whatever
+        try{
+            if(args.length!=1){
+                Exception commandLineException = new Exception("Error: Incorrect number of argument given");
+                throw commandLineException;
+            }
+            initialiseGame(args[0]);
         }
-
-
+        catch(IOException e){
+            System.err.print("Error: Could not load the game configuration from '" + args[0] +"'.");
+            //e.printStackTrace();
+        }
+        catch(Exception e){
+            if(args.length<1){
+                System.out.println("Error: Too few arguments given. Expected 1 argument, found 0.");
+            }
+            else{
+                System.out.println("Error: Too many arguments given. Expected 1 argument, found "+ args.length + ".");
+            }
+            System.out.println("Usage: MazeGame [<game configuration file>|DEFAULT]");
+            System.exit(0);
+        }
 
     }
 

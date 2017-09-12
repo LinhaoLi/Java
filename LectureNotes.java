@@ -332,6 +332,10 @@ However, you can change by using the method in the same class.
 private instance variable and method can only be accessed in the class defination.
 
 6. Accessors method: Allow user to look at the data in a private instance variable.
+7.IOException sos = new IOException("Hello Houston!");
+    throw sos;
+    it works.
+8.
 
 public String getName();
 {
